@@ -7,8 +7,6 @@ const Join = () => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
 
-    console.log(name === '' && room === '' ? true : false);
-
     return (
         <div className={classes.joinOuterContainer}>
             <div className={classes.joinInnerContainer}>
@@ -36,7 +34,13 @@ const Join = () => {
                     to={`/chat?name=${name}&room=${room}`}
                 >
                     <button
-                        className={classes.button + ' ' + classes.mt20}
+                        className={
+                            classes.button +
+                            ' ' +
+                            classes.mt20 +
+                            ' ' +
+                            (!name || !room ? classes.disabled : '')
+                        }
                         type="submit"
                     >
                         Sign In

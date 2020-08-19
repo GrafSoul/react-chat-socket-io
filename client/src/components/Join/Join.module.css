@@ -48,6 +48,14 @@
   margin-top: 20px;
 }
 
+.disabled {
+  opacity: .5;
+  background: #018b1f !important;
+  cursor: default;
+}
+
+.button .disabled {}
+
 @media (min-width: 320px) and (max-width: 480px) {
   .joinOuterContainer {
     height: 100%;
