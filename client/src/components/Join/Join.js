@@ -7,13 +7,15 @@ const Join = () => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
 
+    console.log(name === '' && room === '' ? true : false);
+
     return (
         <div className={classes.joinOuterContainer}>
             <div className={classes.joinInnerContainer}>
                 <h1 className={classes.heading}>Simple Chat</h1>
                 <div>
                     <input
-                        placeholder="Name"
+                        placeholder="Enter Your Name"
                         className={classes.joinInput}
                         type="text"
                         onChange={(event) => setName(event.target.value)}
@@ -21,7 +23,7 @@ const Join = () => {
                 </div>
                 <div>
                     <input
-                        placeholder="Room"
+                        placeholder="Enter the Room Name"
                         className={classes.joinInput + ' ' + classes.mt20}
                         type="text"
                         onChange={(event) => setRoom(event.target.value)}
