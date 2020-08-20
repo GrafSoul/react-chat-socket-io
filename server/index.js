@@ -3,7 +3,7 @@ const socketio = require('socket.io');
 const http = require('http');
 
 /* ************************************************************************ */
-//   1.0 - https://www.youtube.com/watch?v=ZwFA3YMfkoc
+//   https://www.youtube.com/watch?v=ZwFA3YMfkoc
 /* ************************************************************************ */
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
@@ -14,7 +14,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-io.on('connection', (socket) => {
+io.on('connect', (socket) => {
     console.log('We have a new connection!');
 
     socket.on('join', ({ name, room }, callback) => {
@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('sendMessage', (message, callback) => {
-        const user = getMessage(socket.id);
+        const user = getUser(socket.id);
 
         io.to(user.room).emit('message', { user: user.name, text: message });
 
