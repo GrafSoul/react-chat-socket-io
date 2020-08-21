@@ -6,6 +6,7 @@ import classes from './Chat.module.css';
 
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
+import Messages from '../Messages/Messages';
 
 const Chat = ({ location }) => {
     const [name, setName] = useState('');
@@ -54,6 +55,7 @@ const Chat = ({ location }) => {
         <div className={classes.outerContainer}>
             <div className={classes.container}>
                 <InfoBar room={room} />
+                <Messages messages={messages} name={name} />
                 <Input
                     message={message}
                     setMessage={setMessage}
