@@ -1,10 +1,8 @@
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
+const cors = require('cors');
 
-/* ************************************************************************ */
-//   https://www.youtube.com/watch?v=ZwFA3YMfkoc
-/* ************************************************************************ */
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
 const PORT = process.env.PORT || 5000;
@@ -13,6 +11,9 @@ const router = require('./router');
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+
+app.use(router);
+app.use(cors());
 
 io.on('connect', (socket) => {
     console.log('We have a new connection!');
