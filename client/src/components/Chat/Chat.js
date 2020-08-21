@@ -7,12 +7,14 @@ import classes from './Chat.module.css';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 import Messages from '../Messages/Messages';
+import TextContainer from '../TextContainer/TextContainer';
 
 const Chat = ({ location }) => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
+    const [users, setUsers] = useState('');
     const ENDPOINT = 'localhost:5000';
 
     const socket = useRef(null);
@@ -37,7 +39,11 @@ const Chat = ({ location }) => {
         socket.current.on('message', (message) => {
             setMessages([...messages, message]);
         });
-    }, [messages]);
+
+        socket.current.on('roomData', ({ users }) => {
+            setUsers(users);
+        });
+    }, []);
 
     // Function for sending messages
     const sendMessage = (e) => {
@@ -48,8 +54,6 @@ const Chat = ({ location }) => {
             });
         }
     };
-
-    console.log(message, messages);
 
     return (
         <div className={classes.outerContainer}>
@@ -62,6 +66,7 @@ const Chat = ({ location }) => {
                     sendMessage={sendMessage}
                 />
             </div>
+            <TextContainer users={users} />
         </div>
     );
 };

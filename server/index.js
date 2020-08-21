@@ -3,7 +3,7 @@ const socketio = require('socket.io');
 const http = require('http');
 
 /* ************************************************************************ */
-//   1.28.55 - https://www.youtube.com/watch?v=ZwFA3YMfkoc
+//   https://www.youtube.com/watch?v=ZwFA3YMfkoc
 /* ************************************************************************ */
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
@@ -55,7 +55,7 @@ io.on('connect', (socket) => {
 
         if (user) {
             io.to(user.room).emit('message', {
-                user: 'Admin',
+                user: 'admin',
                 text: `${user.name} has left.`,
             });
             io.to(user.room).emit('roomData', {
