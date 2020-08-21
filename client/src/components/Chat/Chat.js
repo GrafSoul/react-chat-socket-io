@@ -43,7 +43,7 @@ const Chat = ({ location }) => {
         socket.current.on('roomData', ({ users }) => {
             setUsers(users);
         });
-    }, []);
+    }, [messages, users]);
 
     // Function for sending messages
     const sendMessage = (e) => {
