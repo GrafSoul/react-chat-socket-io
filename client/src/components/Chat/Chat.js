@@ -15,14 +15,13 @@ const Chat = ({ location }) => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const [users, setUsers] = useState('');
-    const ENDPOINT = 'localhost:5000';
 
     const socket = useRef(null);
 
     useEffect(() => {
         const { name, room } = queryString.parse(location.search);
 
-        socket.current = io(ENDPOINT);
+        socket.current = io.connect('/');
 
         setName(name);
         setRoom(room);
@@ -33,7 +32,7 @@ const Chat = ({ location }) => {
             socket.current.emit('disconnect');
             socket.current.off();
         };
-    }, [ENDPOINT, location.search]);
+    }, [location.search]);
 
     useEffect(() => {
         socket.current.on('message', (message) => {
