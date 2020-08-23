@@ -1,19 +1,30 @@
+require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
-const cors = require('cors');
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
-
 const PORT = process.env.PORT || 5000;
-const router = require('./router');
+const production = process.env.PROD;
 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-app.use(router);
-app.use(cors());
+console.log(production);
+
+if (production === true) {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/build/index.html'));
+    });
+} else {
+    app.use(express.static(path.join(__dirname, '/')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'index.html'));
+    });
+}
 
 io.on('connect', (socket) => {
     console.log('We have a new connection!');
@@ -67,10 +78,9 @@ io.on('connect', (socket) => {
     });
 });
 
-app.use(router);
-
 server.listen(PORT, () => {
-    console.log('*************************************');
-    console.log(`Server has started on port: ${PORT}`);
-    console.log('*************************************');
+    console.log(`**************************************`);
+    console.log(`Server is running on port: ${PORT}`);
+    console.log(`URL address: http://localhost:${PORT}`);
+    console.log(`**************************************`);
 });
