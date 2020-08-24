@@ -8,6 +8,7 @@ const InfoBar = ({ room }) => {
     return (
         <div className={classes.infoBar}>
             <div className={classes.leftInnerContainer}>
+                <h2>Room:</h2>
                 <img
                     className={classes.onlineIcon}
                     src={onlineIcon}

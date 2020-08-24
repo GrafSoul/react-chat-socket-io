@@ -20,10 +20,19 @@
   border: none;
 }
 
-.heading {
+.joinOuterContainer h1 {
+  color: white;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 22px;
+  padding: 0 5px 20px 5px;
+  border-bottom: 1px solid #00868d;
+}
+
+.joinOuterContainer h3 {
   color: white;
   font-size: 1.2em;
-  padding-bottom: 10px;
+  padding: 0 5px 20px 5px;
   border-bottom: 1px solid #00868d;
 }
 

@@ -1,13 +1,16 @@
 .messageBox {
-    background: #F3F3F3;
-    border-radius: 20px;
-    padding: 5px 20px;
+    border-radius: 10px 10px 10px 0;
+    padding: 5px;
     color: white;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     max-width: 80%;
 }
 
 .messageText {
+    margin: 0;
+    padding: 0 5px;
     width: 100%;
     letter-spacing: 0;
     float: left;
@@ -22,11 +25,14 @@
 .messageContainer {
     display: flex;
     justify-content: flex-end;
+    justify-content: center;
     padding: 0 5%;
-    margin-top: 3px;
+    margin-top: 5px;
 }
 
 .sentText {
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     font-family: Helvetica;
@@ -58,10 +64,11 @@
     color: #353535;
 }
 
-.backgroundBlue {
-    background: #2979FF;
+.backgroundGreen {
+    background: #02a884;
+    border-radius: 10px 10px 0 10px;
 }
 
 .backgroundLight {
-    background: #F3F3F3;
+    background: #e2e2e2;
 }

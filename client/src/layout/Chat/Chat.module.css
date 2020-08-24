@@ -3,21 +3,21 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1A1A1D;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #FFFFFF;
-  border-radius: 8px;
   height: 60%;
-  width: 35%;
+  min-width: 320px;
+  width: 50%;
+  margin: 0 15px;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
   .outerContainer {
+    margin: 50px 0;
     height: 100%;
   }
 
@@ -29,6 +29,6 @@
 
 @media (min-width: 480px) and (max-width: 1200px) {
   .container {
-    width: 60%;
+    width: 70%;
   }
 }

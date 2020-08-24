@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import classes from './Join.module.css';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const Join = () => {
     const [name, setName] = useState('');
@@ -13,7 +13,13 @@ const Join = () => {
         <div className={classes.joinOuterContainer}>
             <Header />
             <div className={classes.joinInnerContainer}>
-                <h1 className={classes.heading}>Create or Login to a Сhat</h1>
+                <h1>
+                    SAY.OK - Secure Chat for communication. Fill in the form
+                    fields by entering the name and name of the room, then click
+                    the "SIGN IN" button. If you are creating a new room, let
+                    future people know its name.
+                </h1>
+                <h3>Create Room or Login to the Сhat</h3>
                 <div>
                     <input
                         placeholder="Enter Your Name"

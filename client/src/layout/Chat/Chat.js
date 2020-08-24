@@ -4,12 +4,12 @@ import io from 'socket.io-client';
 
 import classes from './Chat.module.css';
 
-import InfoBar from '../InfoBar/InfoBar';
-import Input from '../Input/Input';
-import Messages from '../Messages/Messages';
-import TextContainer from '../TextContainer/TextContainer';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import InfoBar from '../../components/InfoBar/InfoBar';
+import Input from '../../components/Input/Input';
+import Messages from '../../components/Messages/Messages';
+import TextContainer from '../../components/TextContainer/TextContainer';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const Chat = ({ location }) => {
     const [name, setName] = useState('');
@@ -59,6 +59,7 @@ const Chat = ({ location }) => {
     return (
         <div className={classes.outerContainer}>
             <Header />
+            <TextContainer users={users} />
             <div className={classes.container}>
                 <InfoBar room={room} />
                 <Messages messages={messages} name={name} />
@@ -68,7 +69,6 @@ const Chat = ({ location }) => {
                     sendMessage={sendMessage}
                 />
             </div>
-            <TextContainer users={users} />
             <Footer />
         </div>
     );
