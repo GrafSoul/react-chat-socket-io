@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import classes from './Join.module.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 const Join = () => {
     const [name, setName] = useState('');
@@ -9,8 +11,9 @@ const Join = () => {
 
     return (
         <div className={classes.joinOuterContainer}>
+            <Header />
             <div className={classes.joinInnerContainer}>
-                <h1 className={classes.heading}>SAY.OK | Chat</h1>
+                <h1 className={classes.heading}>Create or Login to a Сhat</h1>
                 <div>
                     <input
                         placeholder="Enter Your Name"
@@ -47,6 +50,7 @@ const Join = () => {
                     </button>
                 </Link>
             </div>
+            <Footer />
         </div>
     );
 };

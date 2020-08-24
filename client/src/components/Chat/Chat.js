@@ -8,6 +8,8 @@ import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 import Messages from '../Messages/Messages';
 import TextContainer from '../TextContainer/TextContainer';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 const Chat = ({ location }) => {
     const [name, setName] = useState('');
@@ -56,6 +58,7 @@ const Chat = ({ location }) => {
 
     return (
         <div className={classes.outerContainer}>
+            <Header />
             <div className={classes.container}>
                 <InfoBar room={room} />
                 <Messages messages={messages} name={name} />
@@ -66,6 +69,7 @@ const Chat = ({ location }) => {
                 />
             </div>
             <TextContainer users={users} />
+            <Footer />
         </div>
     );
 };
