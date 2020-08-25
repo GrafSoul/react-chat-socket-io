@@ -4,5 +4,5 @@
         "titleBar.activeBackground": "#241947",
         "titleBar.activeForeground": "#ffffff",
     },
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
 }
