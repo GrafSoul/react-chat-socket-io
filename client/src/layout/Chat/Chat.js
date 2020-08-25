@@ -44,11 +44,12 @@ const Chat = ({ location }) => {
         socket.current.on('roomData', ({ users }) => {
             setUsers(users);
         });
-    }, [messages, users]);
+    }, [message, messages, users]);
 
     // Function for sending messages
     const sendMessage = (e) => {
         e.preventDefault();
+
         if (message) {
             socket.current.emit('sendMessage', message, () => {
                 setMessage('');
