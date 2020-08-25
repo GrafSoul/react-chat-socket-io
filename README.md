@@ -1,8 +1,11 @@
-# Simple Chat
+# SAY.OK | Simple Chat (ReactJS, Socket.io)
 
-## Is under development!
+Example of building a simple chat using [React.js] and [Socket.io].  
+You can use chat to chat with friends without saving the correspondence.
 
-Example of building a Chat using React.js and Socket.io
+### Demo
+
+Heroku Hosting - [SAY.OK]
 
 ### Clone, Install, Development & Start
 
@@ -44,8 +47,11 @@ yarn start
 
 ### License
 
-© 2020 | Simple Chat | [MIT licensed].
+© 2020 | SAY.OK | Simple Chat (ReactJS, Socket.io) | [MIT licensed].
 
 [nodejs]: https://nodejs.org/
 [yarn]: https://yarnpkg.com/
+[react.js]: https://reactjs.org/
+[socket.io]: https://socket.io/
 [mit licensed]: https://github.com/GrafSoul/react-socket-io-chat.git/blob/master/LICENSE
+[say.ok]: https://sayok.herokuapp.com/

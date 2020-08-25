@@ -39,15 +39,20 @@ const Chat = ({ location }) => {
 
     useEffect(() => {
         socket.current.on('message', (message) => {
-            setMessages([...messages, message]);
+            receivedMessage(message);
         });
 
         socket.current.on('roomData', ({ users }) => {
             setUsers(users);
         });
-    }, [message, messages, users]);
+    }, []);
 
     // Function for sending messages
+
+    const receivedMessage = (message) => {
+        setMessages((oldMessages) => [...oldMessages, message]);
+    };
+
     const sendMessage = (e) => {
         e.preventDefault();
 
