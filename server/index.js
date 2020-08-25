@@ -5,14 +5,13 @@ const socketio = require('socket.io');
 const http = require('http');
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
-const PORT = process.env.PORT || 5000;
-const production = process.env.PROD;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-if (production) {
+if (process.env.PROD) {
     app.use(express.static(path.join(__dirname, '../client/build')));
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, '../client/build/index.html'));

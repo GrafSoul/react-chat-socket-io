@@ -19,11 +19,12 @@ const Chat = ({ location }) => {
     const [users, setUsers] = useState('');
 
     const socket = useRef(null);
+    const ENDPOINT = '/';
 
     useEffect(() => {
         const { name, room } = queryString.parse(location.search);
 
-        socket.current = io.connect('/');
+        socket.current = io.connect(ENDPOINT);
 
         setName(name);
         setRoom(room);
@@ -34,7 +35,7 @@ const Chat = ({ location }) => {
             socket.current.emit('disconnect');
             socket.current.off();
         };
-    }, [location.search]);
+    }, [ENDPOINT, location.search]);
 
     useEffect(() => {
         socket.current.on('message', (message) => {

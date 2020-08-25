@@ -1,5 +1,7 @@
 # Simple Chat
 
+## Is under development!
+
 Example of building a Chat using React.js and Socket.io
 
 ### Clone, Install, Development & Start
